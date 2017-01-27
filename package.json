@@ -4,9 +4,8 @@
   "description": "react practice",
   "main": "app.js",
   "scripts": {
-    "test": "npm test",
-    "build": "./node_modules/.bin/webpack -d --watch",
-    "dev": "nodemon app.jsx"
+    "build": "webpack -p",
+    "dev": "webpack -d --watch"
   },
   "repository": {
     "type": "git",

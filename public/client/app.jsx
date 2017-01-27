@@ -2,10 +2,16 @@
 
 import React from 'react';
 import {render} from 'react-dom';
+import Page2 from './page2.jsx';
 
 class App extends React.Component {
     render() {
-        return <p>Webpack works!!</p>;
+        return (
+            <div>
+                <p>React test</p>
+                <Page2 />
+            </div>
+        );
     }
 }
 
