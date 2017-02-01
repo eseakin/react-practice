@@ -10,11 +10,17 @@ var config = {
         path: BUILD_DIR,
         filename: 'bundle.js'
     },
+    devServer: {
+        inline: true,
+        contentBase: './public',
+        port: 8100
+    },
     module: {
         loaders: [
             {
                 test: /\.jsx?/,
                 include: APP_DIR,
+                exclude: /node_modules/,
                 loader: 'babel'
             }
         ]

@@ -1,11 +1,17 @@
 'use strict';
-var express = require('express');
-var app = express();
+const express = require('express')
+const path = require('path')
+const port = process.env.PORT || 8100
+const app = express()
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
+// serve static assets normally
+app.use(express.static(__dirname + '../public/client'))
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-});
+// handle every other route with index.html, which will contain
+// a script tag to your application's JavaScript file(s).
+app.get('*', function (request, response){
+  response.sendFile(path.resolve(__dirname, '../public/client', 'index.html'))
+})
+
+app.listen(port)
+console.log("server started on port " + port)
